@@ -1,0 +1,23 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', function () {
+    return "ยินดีต้อนรับเข้าสูนครดารา <a href='".route('login')."'>Login</a>";
+});
+
+Route::get('about', function () {
+    return "มองไปทางไหนก็มีแต่ซุปเปอร์สตาร์";
+});
+
+Route::get('blog/{id}', function ($id) {
+    return "บทความทั้งหมด".$id;
+}); 
+
+Route::get('admin/user/palm', function () {
+    return "<h1>ยินดีต้อนรับ Addmin</h1>";
+})->name('login');
+
+Route::fallback(function(){
+ return "ไม่พบหน้า";
+});
